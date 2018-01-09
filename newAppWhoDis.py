@@ -12,8 +12,8 @@ app = Flask(__name__)
 @app.route("/sms", methods=['GET', 'POST'])
 def incoming_sms():
     """Send a customized reply to an incoming text message"""
-    country = request.values.get('ToCountry', None)
-    
+    country = request.values.get('FromCountry', None)
+
     resp = MessagingResponse()
 
     resp.message("Hi! It looks like your phone number was born in {}".format(country))
